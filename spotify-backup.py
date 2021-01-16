@@ -186,17 +186,17 @@ def main():
 		# Tab-separated file.
 		else:
 			for playlist in playlists:
-				f.write(playlist['name'] + '\r\n')
+				f.write(playlist['name'] + '\n')
 				for track in playlist['tracks']:
 					if track['track'] is None:
 						continue
-					f.write('{name}\t{artists}\t{album}\t{uri}\r\n'.format(
+					f.write('{name}\t{artists}\t{album}\t{uri}\n'.format(
 						uri=track['track']['uri'],
 						name=track['track']['name'],
 						artists=', '.join([artist['name'] for artist in track['track']['artists']]),
 						album=track['track']['album']['name']
 					))
-				f.write('\r\n')
+				f.write('\n')
 	logging.info('Wrote file: ' + args.file)
 
 if __name__ == '__main__':
